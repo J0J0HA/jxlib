@@ -56,12 +56,14 @@
     } = $props();
 
     const validateValidity = () => {
-        if (required && !value) invalid = true;
-        else if (pattern && !pattern.test(value)) invalid = true;
-        else if (!required && !value) invalid = false;
-        else if (inputmode && !inputmodePatterns[inputmode].test(value))
+        if (!required && !value) invalid = false;
+        else if (
+            (required && !value) ||
+            (pattern && !pattern.test(value)) ||
+            (inputmode && !inputmodePatterns[inputmode].test(value)) ||
+            !typePatterns[type].test(value)
+        )
             invalid = true;
-        else if (!typePatterns[type].test(value)) invalid = true;
         else invalid = false;
     };
 </script>
