@@ -32,8 +32,6 @@
             | "password"
             | "email"
             | "tel"
-            | "checkbox"
-            | "color"
             | "number"
             | "time"
             | "url"

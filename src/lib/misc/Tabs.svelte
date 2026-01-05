@@ -8,6 +8,7 @@
     let {
         children,
         tabs,
+        name = null,
         fx,
         fh,
         fw,
@@ -22,6 +23,7 @@
                 icon?: keyof typeof feather.icons;
             }
         >;
+        name?: string | null;
         fh?: boolean;
         fw?: boolean;
         fx?: boolean;
@@ -39,6 +41,9 @@
     setContext("selectedTab", () => selectedTab);
 </script>
 
+{#if name}
+    <input type="hidden" {name} value={selectedTab} />
+{/if}
 <div class="jx wrapper" class:fw class:fh class:fx>
     <div class="jx selector">
         {#each Object.entries(tabs) as [key, tabInfo] (key)}

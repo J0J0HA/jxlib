@@ -31,6 +31,7 @@
             bind:value={themeColor}
         />
         <Tabs
+            name="tab"
             tabs={{
                 tab1: { label: "Tab 1", icon: "send" },
                 tab2: { label: "Tab 2", icon: "bar-chart", disabled: true },
