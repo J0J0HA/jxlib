@@ -82,7 +82,7 @@
         {placeholder}
         bind:value
         {required}
-        pattern={pattern?.toString()}
+        pattern={pattern?.toString().slice(1, -1)}
         {disabled}
         class:invalid
         oninvalid={(e) => {
