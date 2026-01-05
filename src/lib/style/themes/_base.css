@@ -1,0 +1,36 @@
+:root {
+    --fg: var(--light-fg, var(--dark-fg));
+    --bg: var(--light-bg, var(--dark-bg));
+
+    color-scheme: var(--light-cs) var(--dark-cs);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg: var(--dark-fg, var(--light-fg));
+        --bg: var(--dark-bg, var(--light-bg));
+
+        color-scheme: var(--dark-cs, var(--light-cs));
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --fg: var(--light-fg, var(--dark-fg));
+        --bg: var(--light-bg, var(--dark-bg));
+
+        color-scheme: var(--light-cs, var(--dark-cs));
+    }
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--bg);
+    color: var(--fg);
+    height: 100dvh;
+}
+
+* {
+    box-sizing: border-box;
+}

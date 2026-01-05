@@ -1,0 +1,15 @@
+.jx {
+    all: unset;
+
+    &.fh {
+        height: 100%;
+    }
+
+    &.fw {
+        width: 100%;
+    }
+
+    &.fx {
+        flex: 1 1;
+    }
+}
