@@ -109,6 +109,11 @@
     }
 
     section {
-        display: contents;
+        display: block;
+        padding: 4rem;
+        border-radius: 8px;
+
+        height: 100%;
+        width: 100%;
     }
 </style>
