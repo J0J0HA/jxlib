@@ -19,6 +19,7 @@ jobs:
       - run: npm ci
 
   publish-npm:
+    needs: build
     permissions:
       id-token: write
       contents: read
