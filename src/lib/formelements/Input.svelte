@@ -19,6 +19,12 @@
         disabled = false,
         invalid = $bindable(false),
 
+        noDefaultPattern = false,
+        morph = null,
+        onkeydown = null,
+        onkeypress = null,
+        onkeyup = null,
+
         // General
         fx = false,
         fh = false,
@@ -53,15 +59,21 @@
         pattern?: RegExp | null;
         disabled?: boolean;
         invalid?: boolean;
+        noDefaultPattern?: boolean;
+        morph?: ((value: string) => string) | null;
+        onkeyup?: ((event: KeyboardEvent) => void) | null;
+        onkeypress?: ((event: KeyboardEvent) => void) | null;
+        onkeydown?: ((event: KeyboardEvent) => void) | null;
     } = $props();
 
     const validateValidity = () => {
+        if (morph) value = morph(value);
         if (!required && !value) invalid = false;
         else if (
             (required && !value) ||
             (pattern && !pattern.test(value)) ||
-            (inputmode && !inputmodePatterns[inputmode].test(value)) ||
-            !typePatterns[type].test(value)
+            (!noDefaultPattern && inputmode && !inputmodePatterns[inputmode].test(value)) ||
+            (!noDefaultPattern && !typePatterns[type].test(value))
         )
             invalid = true;
         else invalid = false;
@@ -88,7 +100,12 @@
         oninvalid={(e) => {
             invalid = true;
         }}
-        onkeyup={validateValidity}
+        {onkeydown}
+        {onkeypress}
+        onkeyup={(event)=>{
+            if (onkeyup) onkeyup(event);
+            validateValidity();
+        }}
         onchange={validateValidity}
     />
 </div>
