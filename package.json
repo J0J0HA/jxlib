@@ -1,6 +1,9 @@
 {
 	"name": "jxlib",
 	"version": "0.0.8",
+	"repository": {
+		"url": "https://github.com/J0J0HA/jxlib"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
