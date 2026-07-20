@@ -15,6 +15,7 @@ export { default as FIcon } from "./misc/FIcon.svelte";
 export { default as Tabs } from "./misc/Tabs.svelte";
 export { default as Tab } from "./misc/Tab.svelte";
 export { default as Rule } from "./misc/Rule.svelte";
+export { default as PanelLayout } from "./misc/PanelLayout.svelte";
 
 // Theme Loader
 export { default as LoadDefaultTheme } from "./themes/DefaultTheme.svelte";
