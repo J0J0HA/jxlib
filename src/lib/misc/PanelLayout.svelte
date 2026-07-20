@@ -66,9 +66,13 @@
     }
 
     nav {
-        width: 200px;
+        width: fit-content;
+        min-width: 100px;
         border-right: 1px solid lightgray;
         padding-top: 1.5rem;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
     }
 
     nav ul {
@@ -110,10 +114,13 @@
 
     section {
         display: block;
+
         padding: 4rem;
         border-radius: 8px;
 
         height: 100%;
         width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
     }
 </style>
